@@ -1,9 +1,9 @@
-import { auth } from "@clerk/nextjs/server";
 import { db } from "./db";
 import { MAX_FREE_BOARDS } from "@/constants/boards";
+import { getLocalAuth } from "./local-auth";
 
 export const increaseAvailableCount = async () => {
-  const { orgId } = auth();
+  const { orgId } = getLocalAuth();
 
   if (!orgId) throw new Error("Unauthorized");
 
@@ -28,7 +28,7 @@ export const increaseAvailableCount = async () => {
 };
 
 export const decreaseAvailableCount = async () => {
-  const { orgId } = auth();
+  const { orgId } = getLocalAuth();
 
   if (!orgId) throw new Error("Unauthorized");
 
@@ -53,7 +53,7 @@ export const decreaseAvailableCount = async () => {
 };
 
 export const hasAvailableCount = async () => {
-  const { orgId } = auth();
+  const { orgId } = getLocalAuth();
 
   if (!orgId) throw new Error("Unauthorized");
 
@@ -65,7 +65,7 @@ export const hasAvailableCount = async () => {
 };
 
 export const getAvailableCount = async () => {
-  const { orgId } = auth();
+  const { orgId } = getLocalAuth();
 
   if (!orgId) return 0;
 
