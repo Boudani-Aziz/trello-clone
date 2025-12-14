@@ -1,19 +1,5 @@
-import React from "react";
-import { OrganizationList } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
-const CreateOrganizationPage = () => {
-  return (
-    <OrganizationList
-      hidePersonal
-      afterSelectOrganizationUrl="/organization/:id"
-      afterCreateOrganizationUrl="/organization/:id"
-      appearance={{
-        layout: {
-          logoPlacement: "none",
-        },
-      }}
-    />
-  );
-};
+const CreateOrganizationPage = () => redirect("/organization/local-org");
 
 export default CreateOrganizationPage;

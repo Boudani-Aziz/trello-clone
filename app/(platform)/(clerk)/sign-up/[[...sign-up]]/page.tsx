@@ -1,8 +1,5 @@
-import React from "react";
-import { SignUp } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
-const SignUpPage = () => {
-  return <SignUp />;
-};
+const SignUpPage = () => redirect("/organization/local-org");
 
 export default SignUpPage;

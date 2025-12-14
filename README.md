@@ -71,7 +71,10 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
     npm run dev
     ```
 
-2. Open http://localhost:3000 with your browser to see the result.
+2. Open http://localhost:3000 to load the landing page.
+
+3. Go straight to the local workspace boards at http://localhost:3000/organization/local-org
+   (no login needed). Create a board and start adding lists/cards from there.
 
 ## License
 

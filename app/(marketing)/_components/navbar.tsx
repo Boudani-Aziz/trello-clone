@@ -11,12 +11,15 @@ const Navbar = () => {
         <Logo />
         <div className=" space-x-4  md:w-auto flex items-center justify-between w-full">
           <Link
-            href="/sign-in"
+            href="/organization/local-org"
             className={buttonVariants({ size: "sm", variant: "outline" })}
           >
-            Login
+            Open boards
           </Link>
-          <Link href="/sign-up" className={buttonVariants({ size: "sm" })}>
+          <Link
+            href="/organization/local-org"
+            className={buttonVariants({ size: "sm" })}
+          >
             Get Taskify for free
           </Link>
           <Link
