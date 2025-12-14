@@ -1,6 +1,6 @@
 # Trello Clone
 
-A full-stack Trello clone built with Next.js, Prisma, Clerk, and Stripe.
+A full-stack Trello clone built with Next.js and Prisma.
 
 ## Table of Contents
 
@@ -14,9 +14,8 @@ A full-stack Trello clone built with Next.js, Prisma, Clerk, and Stripe.
 
 ## Features
 
-- User authentication and authorization with Clerk
+- Local-only workspace without external authentication
 - Task management (create, read, update, delete tasks)
-- Payment processing with Stripe
 - Responsive design
 
 ## Demo
@@ -26,9 +25,7 @@ Check out the live demo: [Trello Clone](https://trello-clone-six-red.vercel.app)
 ## Tech Stack
 
 - **Frontend:** Next.js, Tailwind CSS
-- **Backend:** Next.js API routes, Prisma, PostgreSQL
-- **Authentication:** Clerk
-- **Payments:** Stripe
+- **Backend:** Next.js API routes, Prisma, MySQL
 - **Deployment:** Vercel
 
 ## Installation
@@ -44,7 +41,7 @@ Check out the live demo: [Trello Clone](https://trello-clone-six-red.vercel.app)
     npm install
     ```
 
-3. Set up your Prisma schema
+3. Set up your Prisma schema (requires a local MySQL instance)
     ```bash
     npx prisma generate
     npx prisma migrate dev --name init
@@ -52,32 +49,20 @@ Check out the live demo: [Trello Clone](https://trello-clone-six-red.vercel.app)
     
 ## Environment Variables
 
-Create a `.env` file in the root of your project and add the following variables:
+Create a `.env` file in the root of your project and add the following variables. Clerk and Stripe are no longer required for local use.
 
 ```env
-# clerk auth keys
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-CLERK_SECRET_KEY=sk_test_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-# clerk redirect url(s)
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
-
 # mysql db url
 DATABASE_URL=<your-db-url>
 
 # unsplash api key
 NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-# stripe api & webhook key
-STRIPE_API_KEY=sk_test_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-STRIPE_WEBHOOK_SECRET=whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
 # app base url
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
+
+> **Note:** Authentication and billing have been stubbed out for a single local workspace. A running MySQL database is required for Prisma migrations and data storage.
 
 ## Usage
 
