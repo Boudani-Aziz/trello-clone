@@ -1,6 +1,6 @@
-import { auth, currentUser } from "@clerk/nextjs/server";
 import type { ACTION, ENTITY_TYPE } from "@prisma/client";
 import { db } from "./db";
+import { getLocalAuth, getLocalUser } from "./local-auth";
 
 type Props = {
   entityId: string;
@@ -11,10 +11,8 @@ type Props = {
 
 export const createAuditLog = async (props: Props) => {
   try {
-    const { orgId } = auth();
-    const user = await currentUser();
-
-    if (!user || !orgId) throw new Error("User not found.");
+    const { orgId } = getLocalAuth();
+    const user = getLocalUser();
 
     const { entityId, entityTitle, entityType, action } = props;
 

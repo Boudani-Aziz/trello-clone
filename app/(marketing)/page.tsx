@@ -46,7 +46,7 @@ const MarketingPage = () => {
         accomplish it all with Taskify.
       </div>
       <Link
-        href="/sign-up"
+        href="/organization/local-org"
         className={cn(buttonVariants({ size: "lg" }), "mt-6")}
       >
         Get Taskify for free

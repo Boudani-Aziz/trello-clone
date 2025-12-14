@@ -18,7 +18,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@clerk/nextjs": ["./lib/local-clerk"],
+      "@clerk/nextjs/server": ["./lib/local-clerk-server"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
